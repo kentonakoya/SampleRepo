@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "sops": [
+    {
+      "id": "SOP001",
+      "title": "New Employee IT Onboarding",
+      "category": "Onboarding",
+      "owner": "IT Manager",
+      "status": "Active",
+      "version": "1.2",
+      "reviewDate": "2025-12-31",
+      "tags": ["onboarding", "accounts", "access"],
+      "summary": "End-to-end process for setting up IT access for new starters.",
+      "lastUpdatedBy": "",
+      "lastUpdatedAt": ""
+    },
+    {
+      "id": "SOP002",
+      "title": "Password Reset & Account Unlock",
+      "category": "Security",
+      "owner": "IT Helpdesk",
+      "status": "Active",
+      "version": "2.0",
+      "reviewDate": "2025-09-30",
+      "tags": ["password", "security", "accounts"],
+      "summary": "Steps to securely reset user passwords and unlock locked accounts.",
+      "lastUpdatedBy": "",
+      "lastUpdatedAt": ""
+    },
+    {
+      "id": "SOP003",
+      "title": "Laptop Build & Configuration",
+      "category": "Hardware",
+      "owner": "IT Engineer",
+      "status": "Active",
+      "version": "1.5",
+      "reviewDate": "2026-03-31",
+      "tags": ["laptop", "hardware", "build"],
+      "summary": "Standard operating procedure for imaging and configuring a new laptop.",
+      "lastUpdatedBy": "",
+      "lastUpdatedAt": ""
+    },
+    {
+      "id": "SOP004",
+      "title": "VPN Access Request & Setup",
+      "category": "Network",
+      "owner": "IT Engineer",
+      "status": "Active",
+      "version": "1.1",
+      "reviewDate": "2026-01-31",
+      "tags": ["vpn", "remote", "network", "access"],
+      "summary": "How to request, approve and configure VPN access for users.",
+      "lastUpdatedBy": "",
+      "lastUpdatedAt": ""
+    },
+    {
+      "id": "SOP005",
+      "title": "Data Backup & Recovery",
+      "category": "Data Management",
+      "owner": "IT Manager",
+      "status": "Under Review",
+      "version": "1.0",
+      "reviewDate": "2025-08-31",
+      "tags": ["backup", "recovery", "data"],
+      "summary": "Schedule and procedures for backing up critical data and recovering from failures.",
+      "lastUpdatedBy": "",
+      "lastUpdatedAt": ""
+    }
+  ]
+}

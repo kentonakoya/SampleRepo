@@ -1,0 +1,89 @@
+{
+  "id": "SOP004",
+  "title": "VPN Access Request & Setup",
+  "category": "Network",
+  "owner": "IT Engineer",
+  "status": "Active",
+  "version": "1.1",
+  "reviewDate": "2026-01-31",
+  "tags": ["vpn", "remote", "network", "access"],
+  "summary": "How to request, approve and configure VPN access for users.",
+  "purpose": "Ensure VPN access is granted only to authorised users, correctly configured, and revoked when no longer needed.",
+  "scope": "All Circle Gas employees and contractors requiring remote network access.",
+  "roles": [
+    { "role": "Employee / Contractor", "responsibility": "Submits the VPN access request with manager approval." },
+    { "role": "IT Engineer", "responsibility": "Provisions and configures VPN access." },
+    { "role": "IT Manager", "responsibility": "Reviews and approves all VPN access requests." }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Submit VPN access request",
+      "description": "The employee submits a VPN Access Request via the IT helpdesk portal, including: business justification, duration required, and line manager approval.",
+      "role": "Employee / Contractor",
+      "notes": "Requests without manager approval will be rejected automatically.",
+      "checklist": [
+        "Helpdesk ticket raised",
+        "Business justification provided",
+        "Duration specified",
+        "Manager approval attached"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "IT Manager reviews and approves",
+      "description": "IT Manager reviews the request for business need and security risk. Approves or rejects within 1 business day. For contractor accounts, a fixed-term expiry date must be set.",
+      "role": "IT Manager",
+      "notes": "Contractor VPN access must never be indefinite — maximum 90 days per request.",
+      "checklist": [
+        "Business justification reviewed",
+        "Approved or rejected with reason",
+        "Expiry date set for contractors"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Add user to VPN security group",
+      "description": "In Active Directory, add the approved user to the VPN_Users security group. This grants access to the VPN gateway policy in the firewall.",
+      "role": "IT Engineer",
+      "notes": "Do not manually configure firewall rules — group membership controls access automatically.",
+      "checklist": [
+        "User added to VPN_Users AD group",
+        "Group membership replicated (allow 15 minutes)"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Install and configure VPN client",
+      "description": "If not already installed via Intune, install the approved VPN client (GlobalProtect / OpenVPN — see IT Glue for current approved client). Provide the user with the gateway address and connection guide.",
+      "role": "IT Engineer",
+      "notes": "Always use the VPN client version specified in IT Glue. Do not use older versions.",
+      "checklist": [
+        "VPN client installed",
+        "Gateway address configured",
+        "Connection guide sent to user"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Test and confirm access",
+      "description": "Ask the user to connect to the VPN and confirm they can access required internal resources. Test from outside the office network. Close the ticket once confirmed.",
+      "role": "IT Engineer",
+      "notes": "If connection fails, check AD group replication, firewall policy, and MFA status.",
+      "checklist": [
+        "User connected to VPN successfully",
+        "Internal resources accessible",
+        "Ticket closed with confirmation note"
+      ]
+    }
+  ],
+  "references": [
+    "IT Glue — Approved VPN Client",
+    "VPN Connection Guide (SharePoint)",
+    "Active Directory — VPN_Users Group"
+  ],
+  "changeHistory": [
+    { "version": "1.1", "date": "2025-02-14", "author": "IT Engineer", "notes": "Added 90-day cap for contractor access. Added MFA check to troubleshooting." },
+    { "version": "1.0", "date": "2024-06-01", "author": "IT Manager", "notes": "Initial version." }
+  ]
+}

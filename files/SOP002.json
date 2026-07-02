@@ -1,0 +1,90 @@
+{
+  "id": "SOP002",
+  "title": "Password Reset & Account Unlock",
+  "category": "Security",
+  "owner": "IT Helpdesk",
+  "status": "Active",
+  "version": "2.0",
+  "reviewDate": "2025-09-30",
+  "tags": ["password", "security", "accounts"],
+  "summary": "Steps to securely reset user passwords and unlock locked accounts.",
+  "purpose": "Provide a consistent, secure process for resetting passwords and unlocking accounts while verifying user identity.",
+  "scope": "All Circle Gas employees and contractors with managed IT accounts.",
+  "roles": [
+    { "role": "IT Helpdesk", "responsibility": "Verifies identity and performs the reset or unlock." },
+    { "role": "IT Manager", "responsibility": "Approves resets for privileged/admin accounts." }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Receive and log the request",
+      "description": "Log the request in the helpdesk system. Record the requestor's name, email, department, and the nature of the issue (locked account or forgotten password).",
+      "role": "IT Helpdesk",
+      "notes": "Requests via WhatsApp or direct message are not acceptable — direct user to the helpdesk portal or email.",
+      "checklist": [
+        "Ticket created in helpdesk system",
+        "Issue type recorded (locked / password reset)",
+        "Requestor details captured"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Verify user identity",
+      "description": "Verify the user's identity before making any changes. For standard users: confirm full name, employee ID, and manager name. For privileged accounts: require IT Manager approval in addition.",
+      "role": "IT Helpdesk",
+      "notes": "Never reset a password based on an email request alone — always call the user or verify in person.",
+      "checklist": [
+        "Full name confirmed",
+        "Employee ID confirmed",
+        "Manager name confirmed",
+        "IT Manager approval obtained (privileged accounts only)"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Unlock account or reset password",
+      "description": "In Active Directory Users & Computers (or Azure AD), locate the account. For locked accounts: right-click → Unlock. For password resets: right-click → Reset Password, set a temporary password, and tick 'User must change password at next logon'.",
+      "role": "IT Helpdesk",
+      "notes": "Temporary passwords must meet complexity requirements: 12+ characters, upper/lower/number/symbol.",
+      "checklist": [
+        "Account located in AD / Azure AD",
+        "Account unlocked (if locked)",
+        "Temporary password set (if reset)",
+        "Force change at next logon enabled"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Communicate new credentials securely",
+      "description": "Send the temporary password to the user via a secure method — use IT Glue's secure password sharing link. Never send passwords in plain text via email or chat.",
+      "role": "IT Helpdesk",
+      "notes": "The secure link expires after 1 view. Confirm with the user that they received and opened it.",
+      "checklist": [
+        "Secure password link generated",
+        "Link sent to user",
+        "User confirmed they received it"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Confirm and close ticket",
+      "description": "Confirm with the user that they have successfully logged in with the new credentials. Close the helpdesk ticket and note the resolution.",
+      "role": "IT Helpdesk",
+      "notes": "If the user cannot log in after reset, escalate to check for AD replication issues or account policy conflicts.",
+      "checklist": [
+        "User confirmed successful login",
+        "Ticket closed with resolution notes",
+        "Escalated if issues persist"
+      ]
+    }
+  ],
+  "references": [
+    "IT Glue — Secure Password Sharing Guide",
+    "Active Directory User Management Guide",
+    "Circle Gas Password Policy"
+  ],
+  "changeHistory": [
+    { "version": "2.0", "date": "2025-01-10", "author": "IT Helpdesk", "notes": "Added privileged account approval step. Mandated secure password sharing." },
+    { "version": "1.0", "date": "2024-06-01", "author": "IT Manager", "notes": "Initial version." }
+  ]
+}

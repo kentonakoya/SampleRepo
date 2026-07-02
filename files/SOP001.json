@@ -1,0 +1,121 @@
+{
+  "id": "SOP001",
+  "title": "New Employee IT Onboarding",
+  "category": "Onboarding",
+  "owner": "IT Manager",
+  "status": "Active",
+  "version": "1.2",
+  "reviewDate": "2025-12-31",
+  "tags": ["onboarding", "accounts", "access"],
+  "summary": "End-to-end process for setting up IT access for new starters.",
+  "purpose": "Ensure every new employee has the correct IT access, hardware, and software on their first day, with no steps missed.",
+  "scope": "All new permanent and contract employees across all Circle Gas markets.",
+  "roles": [
+    { "role": "IT Manager", "responsibility": "Approves access requests and assigns equipment." },
+    { "role": "IT Helpdesk", "responsibility": "Executes account creation and device setup." },
+    { "role": "HR", "responsibility": "Raises the onboarding request at least 5 working days before start date." }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Receive onboarding request from HR",
+      "description": "HR submits a completed New Starter Request form (SharePoint) including: full name, job title, department, manager, start date, market, and required software.",
+      "role": "HR",
+      "notes": "Must be submitted ≥5 working days before start date.",
+      "checklist": [
+        "New Starter Request form submitted",
+        "Start date confirmed",
+        "Manager name provided",
+        "Market/location confirmed"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Create Active Directory account",
+      "description": "Create the user account in Active Directory following the naming convention: firstname.lastname@circlegas.com. Set a temporary password and force reset on first login.",
+      "role": "IT Helpdesk",
+      "notes": "Username must be unique — check for existing accounts with same name before creating.",
+      "checklist": [
+        "AD account created with correct naming convention",
+        "Temporary password set",
+        "Force password reset on first login enabled",
+        "Account placed in correct OU"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Assign Microsoft 365 licence",
+      "description": "In the Microsoft 365 Admin Centre, assign the appropriate licence tier (Business Standard or E3) based on the employee's role as specified in the onboarding form.",
+      "role": "IT Helpdesk",
+      "notes": "Check current licence availability before assigning. Escalate to IT Manager if stock is low.",
+      "checklist": [
+        "Correct licence tier identified",
+        "Licence assigned in M365 Admin Centre",
+        "Mailbox provisioned and accessible",
+        "Teams access confirmed"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Add to relevant security groups and distribution lists",
+      "description": "Add the user to department security groups, shared mailboxes, and Teams channels as directed by the manager. Reference the Department Access Matrix (SharePoint).",
+      "role": "IT Helpdesk",
+      "notes": "Do not add to groups beyond what is specified — follow least-privilege principle.",
+      "checklist": [
+        "Department security group added",
+        "Shared mailboxes added if required",
+        "Teams channels added",
+        "SharePoint site access granted"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Prepare and configure laptop",
+      "description": "Image and configure a laptop following SOP003. Apply company MDM policy, install standard software bundle, and label the asset.",
+      "role": "IT Helpdesk",
+      "notes": "Cross-reference SOP003 (Laptop Build & Configuration) for full imaging steps.",
+      "checklist": [
+        "Laptop imaged with latest approved build",
+        "MDM policy applied",
+        "Standard software installed",
+        "Asset tagged and recorded in asset register"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Send welcome email to new employee",
+      "description": "Send the standard IT Welcome Email template (found in SharePoint > IT Templates) to the employee's personal email (pre-start) and their new work email. Include login credentials, IT support contact, and first-day instructions.",
+      "role": "IT Helpdesk",
+      "notes": "Never send temporary passwords in plain text — use the secure password link from IT Glue.",
+      "checklist": [
+        "Welcome email sent to personal email before start date",
+        "Temporary password link sent separately",
+        "IT support contact included",
+        "First-day laptop collection instructions included"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Confirm setup on Day 1",
+      "description": "Check in with the new employee on their first day to confirm they can log in, access email and Teams, and that the laptop is working correctly. Resolve any blockers immediately.",
+      "role": "IT Helpdesk",
+      "notes": "Log any issues in the helpdesk system against the onboarding ticket.",
+      "checklist": [
+        "Employee can log in successfully",
+        "Email accessible",
+        "Teams accessible",
+        "Any issues logged and resolved"
+      ]
+    }
+  ],
+  "references": [
+    "SOP003 — Laptop Build & Configuration",
+    "Department Access Matrix (SharePoint)",
+    "IT Welcome Email Template (SharePoint > IT Templates)"
+  ],
+  "changeHistory": [
+    { "version": "1.2", "date": "2025-03-01", "author": "IT Manager", "notes": "Added Day 1 confirmation step." },
+    { "version": "1.1", "date": "2024-11-15", "author": "IT Manager", "notes": "Updated licence assignment steps for M365 E3 rollout." },
+    { "version": "1.0", "date": "2024-06-01", "author": "IT Manager", "notes": "Initial version." }
+  ]
+}

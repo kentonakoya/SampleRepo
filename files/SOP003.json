@@ -1,0 +1,111 @@
+{
+  "id": "SOP003",
+  "title": "Laptop Build & Configuration",
+  "category": "Hardware",
+  "owner": "IT Engineer",
+  "status": "Active",
+  "version": "1.5",
+  "reviewDate": "2026-03-31",
+  "tags": ["laptop", "hardware", "build"],
+  "summary": "Standard operating procedure for imaging and configuring a new laptop.",
+  "purpose": "Ensure every laptop issued to staff is consistently imaged, secured, and recorded before deployment.",
+  "scope": "All new and replacement laptops for Circle Gas employees.",
+  "roles": [
+    { "role": "IT Engineer", "responsibility": "Performs the imaging, configuration and asset registration." },
+    { "role": "IT Manager", "responsibility": "Approves hardware procurement and signs off completed builds." }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Unbox and inspect hardware",
+      "description": "Unbox the laptop and inspect for physical damage. Record the serial number and model in the asset register before powering on.",
+      "role": "IT Engineer",
+      "notes": "Do not power on before recording the serial number — it may be needed for warranty purposes.",
+      "checklist": [
+        "Physical inspection completed — no damage",
+        "Serial number recorded",
+        "Model recorded in asset register",
+        "Asset tag applied"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Boot from imaging USB and apply standard image",
+      "description": "Insert the approved imaging USB. Boot into WinPE and run the imaging script to apply the latest approved Windows image from the network share.",
+      "role": "IT Engineer",
+      "notes": "Confirm the image version matches the current approved build in IT Glue before applying.",
+      "checklist": [
+        "Latest approved image version confirmed",
+        "Booted from imaging USB successfully",
+        "Image applied without errors",
+        "Initial Windows setup completed"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Join to domain and apply MDM policy",
+      "description": "Join the laptop to the corporate Active Directory domain. Enrol in Microsoft Intune (MDM). Verify that group policies and compliance policies are applied.",
+      "role": "IT Engineer",
+      "notes": "Laptop must be connected to the corporate network (wired) or VPN during domain join.",
+      "checklist": [
+        "Laptop joined to domain",
+        "Intune enrolment completed",
+        "Group policy applied (run gpupdate /force)",
+        "Compliance status: Compliant in Intune"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Install standard software bundle",
+      "description": "Install the standard software suite via Intune / Software Centre: Microsoft 365 Apps, Teams, Chrome, Defender, VPN client, and any role-specific applications noted in the onboarding request.",
+      "role": "IT Engineer",
+      "notes": "Do not install unlicensed or non-approved software. Check the approved software list in IT Glue.",
+      "checklist": [
+        "Microsoft 365 Apps installed and activated",
+        "Teams installed",
+        "Chrome installed",
+        "Defender running and up to date",
+        "VPN client installed",
+        "Role-specific apps installed"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Enable BitLocker encryption",
+      "description": "Enable BitLocker on the C: drive. Ensure the recovery key is backed up to Azure AD automatically. Verify encryption status.",
+      "role": "IT Engineer",
+      "notes": "Do not hand over the laptop until BitLocker is fully encrypted — check status with manage-bde -status.",
+      "checklist": [
+        "BitLocker enabled on C: drive",
+        "Recovery key backed up to Azure AD",
+        "Encryption status: fully encrypted"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Run QA checks and sign off",
+      "description": "Run through the QA checklist: test internet, email, Teams, VPN, and printer connectivity. Confirm all software opens correctly. IT Manager signs off the build record.",
+      "role": "IT Engineer",
+      "notes": "Log the completed build in the asset register with the assigned user and handover date.",
+      "checklist": [
+        "Internet connectivity confirmed",
+        "Email login confirmed",
+        "Teams login confirmed",
+        "VPN connectivity confirmed",
+        "All software opens without errors",
+        "IT Manager sign-off obtained",
+        "Asset register updated with assigned user"
+      ]
+    }
+  ],
+  "references": [
+    "IT Glue — Approved Software List",
+    "IT Glue — Approved Image Versions",
+    "Asset Register (SharePoint)",
+    "Microsoft Intune Admin Centre"
+  ],
+  "changeHistory": [
+    { "version": "1.5", "date": "2025-04-01", "author": "IT Engineer", "notes": "Added BitLocker step as mandatory. Updated software bundle." },
+    { "version": "1.0", "date": "2024-06-01", "author": "IT Manager", "notes": "Initial version." }
+  ]
+}

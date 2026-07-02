@@ -1,0 +1,82 @@
+{
+  "id": "SOP005",
+  "title": "Data Backup & Recovery",
+  "category": "Data Management",
+  "owner": "IT Manager",
+  "status": "Under Review",
+  "version": "1.0",
+  "reviewDate": "2025-08-31",
+  "tags": ["backup", "recovery", "data"],
+  "summary": "Schedule and procedures for backing up critical data and recovering from failures.",
+  "purpose": "Protect Circle Gas data from loss and ensure recovery within defined RTO and RPO targets.",
+  "scope": "All servers, cloud services, and critical data stores across Circle Gas markets.",
+  "roles": [
+    { "role": "IT Engineer", "responsibility": "Runs and monitors daily backup jobs. Performs restores." },
+    { "role": "IT Manager", "responsibility": "Reviews backup reports weekly. Approves recovery operations for critical systems." }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "title": "Verify daily backup completion",
+      "description": "Each morning, check the backup dashboard (Veeam / Azure Backup — see IT Glue) for the previous night's backup status. All jobs should show 'Success'. Investigate any 'Warning' or 'Failed' jobs immediately.",
+      "role": "IT Engineer",
+      "notes": "Backup alerts should also be sent by email — check your inbox if you have not logged into the dashboard.",
+      "checklist": [
+        "Backup dashboard checked",
+        "All jobs show Success",
+        "Any failures investigated and resolved",
+        "Failure escalated to IT Manager if not resolved within 2 hours"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Run weekly backup integrity test",
+      "description": "Every Monday, select one backup set at random and perform a test restore to the recovery sandbox environment. Confirm the restored data is accessible and uncorrupted.",
+      "role": "IT Engineer",
+      "notes": "Document the result in the Backup Test Log (SharePoint). A failed integrity test must be escalated the same day.",
+      "checklist": [
+        "Random backup set selected",
+        "Test restore to sandbox completed",
+        "Restored data verified as accessible",
+        "Result logged in Backup Test Log"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Respond to a data loss or recovery request",
+      "description": "When a recovery request is received: log the ticket, confirm scope of loss (which data, which time period), obtain IT Manager approval for production restores, and perform the restore from the most recent clean backup.",
+      "role": "IT Engineer",
+      "notes": "Never overwrite live data during a restore — always restore to a staging location first, then move.",
+      "checklist": [
+        "Recovery request ticket logged",
+        "Scope of data loss confirmed",
+        "IT Manager approval obtained",
+        "Restore to staging location performed",
+        "Data verified before moving to production",
+        "User notified of completion"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Update backup schedule for new systems",
+      "description": "When a new server or critical data store is added, ensure it is added to the backup schedule within 24 hours of go-live. Update the Backup Asset Register in IT Glue.",
+      "role": "IT Engineer",
+      "notes": "No new system should go to production without backup coverage.",
+      "checklist": [
+        "New system identified",
+        "Added to backup schedule",
+        "First backup run confirmed successful",
+        "Backup Asset Register updated in IT Glue"
+      ]
+    }
+  ],
+  "references": [
+    "IT Glue — Backup Dashboard Access",
+    "IT Glue — Backup Asset Register",
+    "Backup Test Log (SharePoint)",
+    "Circle Gas Data Retention Policy"
+  ],
+  "changeHistory": [
+    { "version": "1.0", "date": "2024-06-01", "author": "IT Manager", "notes": "Initial version. Under review for RTO/RPO target update." }
+  ]
+}
